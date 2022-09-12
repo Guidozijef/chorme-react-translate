@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "基于react的翻译插件",
+  "version": "1.0.0",
+  "description": "基于react的翻译插件",
+  "icons": {
+    "16": "images/icon.png",
+    "32": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
+  },
+  "permissions": ["contextMenus", "storage", "tabs", "tts", "notifications"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["bundle.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["images/*.png"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  }
+}
